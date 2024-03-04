@@ -1,13 +1,257 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary-color: #ebf2fa;
+  --secondary-color: #050517;
+  --accent-color: #e0cca4;
+}
+
+body {
+  background-color: var(--primary-color);
+  font-family: "Markazi Text", serif;
+}
+
+
+/* Header */
+header {
+  text-align: center;
+  padding: 0.8rem 0;
+}
+
+header img {
+  width: 30vw;
+}
+
+
+/* Navbar */
+nav {
+  background-color: var(--secondary-color);
+  padding: 0.8rem 0;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  list-style: none;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.3em;
+}
+
+nav > ul > li > a:hover {
+  color: var(--accent-color);
+}
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100dvh;
+  background-image: url(./images/hero-model.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero > article {
+  margin: auto;
+  padding: 2rem;
+  color: var(--primary-color);
+}
+
+.hero h1 {
+  font-size: 8rem;
+}
+
+.hero p {
+  font-size: 2rem;
+}
+
+.hero .btn-group {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.hero .btn {
+  cursor: pointer;
+  padding: 0.8rem 1.6rem;
+  margin-top: 2rem;
+  font-size: 1.2em;
+  border: 1px solid black;
+  border-radius: 15px;
+  font-weight: 500;
+  box-shadow: 1.5px 1.5px 20px 0 rgba(208, 165, 129, 0.768);
+}
+
+.hero .btn-cta {
+  background-color: var(--secondary-color);
+  color: inherit;
+}
+
+@media (width < 750px) {
+  .hero > article {
+    margin: auto;
+    color: var(--primary-color);
+    padding: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 6rem;
+  }
+
+  .hero p {
+    font-size: 2.4rem;
+  }
+}
+
+@media (width < 450px) {
+  .hero > article {
+    margin: auto;
+    color: var(--primary-color);
+    padding: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* Features */
+
+.features {
+  margin: 5% 5%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card {
+  flex: 1 1 300px;
+  position: relative;
+  height: 40rem;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card-front {
+  position: absolute;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px 0 rgba(170, 169, 169, 0.712);
+  color: var(--primary-color);
+  font-size: 5em;
+}
+
+.card-back {
+  position: absolute;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px 0 rgba(170, 169, 169, 0.712);
+  transform: rotateY(180deg);
+}
+
+.card-back > h1 {
+  font-size: 5em;
+}
+
+.card-back > .blog {
+  border-radius: 2px;
+  box-shadow: 3px 3px 10px 0 #fecf716d;
+  background-color: rgba(255, 255, 255, 0.185); 
+  padding: 0.2rem;
+  font-size: larger;
+  height: 50%;
+  overflow: hidden;
+}
+
+.card-back > .blog > .img-group {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-back > .blog > .img-group > img {
+  flex: 1 1 50%;
+  height: 50%;
+  width: 50%;
+  object-fit: cover;
+}
+
+.background-specs {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hand-crafted { 
+  background-image: url(./images/hand-crafted.jpg);
+}
+
+.unique { 
+  background-image: url(./images/unique.jpg);
+}
+
+.special { 
+  background-image: url(./images/special-occasion.jpg);
+}
+
+
+/* Footer */
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  align-items: center;
+  padding: 1% 1%;
+}
+
+footer > * {
+  flex: 1 1 300px;
+}
+
+.footer-image-holder, .footer-text-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2% 0;
+}
+
+footer img {
+  width: 90%;
+}
+
+footer > .footer-text-holder > p {
+  font-size : large;
 }
